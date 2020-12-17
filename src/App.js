@@ -1,21 +1,21 @@
 import React from 'react'
-import AddBook from './component/AddBook'
+import { Container, Card } from 'react-bootstrap'
+import Nav from './component/Nav'
+import BookContextProvider from './contexts/BookContext'
 import BookList from './component/BookList'
-import Navbar from './component/Navbar'
-import BookContextProvider from './context/BookContext';
-import ThemeContextProvider from './context/ThemeContext';
+import BookForm from './component/BookForm'
 
 function App() {
   return (
-    <div className="app">
-      <ThemeContextProvider>
+    <Container>
+      <Card className="my-3">
         <BookContextProvider>
-          <Navbar />
+          <Nav />
           <BookList />
-          <AddBook />
+          <BookForm />
         </BookContextProvider>
-      </ThemeContextProvider>
-    </div>
+      </Card>
+    </Container>
   );
 }
 

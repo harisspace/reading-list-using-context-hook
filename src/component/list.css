@@ -1,0 +1,4 @@
+#list:hover {
+    cursor: pointer;
+    text-decoration: line-through;
+}

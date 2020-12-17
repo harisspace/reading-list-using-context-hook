@@ -1,17 +1,18 @@
 import React, { useContext } from 'react'
-import { BookContext } from '../context/BookContext';
+import { ListGroup } from 'react-bootstrap'
+import { BookContext } from '../contexts/BookContext'
+import './list.css'
 
-function BookDetails({ book }) {
+export default function BookDetails({book}) {
     const { dispatchBook } = useContext(BookContext);
 
+    const handleClick = () => {
+        dispatchBook({ type: "REMOVE_BOOK", book: book })
+    }
+
     return (
-        <div className="bookList" onClick={() => dispatchBook({ type: 'REMOVE_BOOK', id: book.id})}>
-            <ul>
-                <li>{book.title}</li>
-                <li>{book.author}</li>
-            </ul>
-        </div>
+        <ListGroup className="mb-3" id="list" onClick={handleClick}>
+            <ListGroup.Item className="text-center">{book.title} - {book.author}</ListGroup.Item>
+        </ListGroup>
     )
 }
-
-export default BookDetails
