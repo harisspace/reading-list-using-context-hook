@@ -15,6 +15,8 @@ export default function BookForm() {
             title,
             author
         }})
+        setTitle('');
+        setAuthor('');
     }
 
     return (
